@@ -1,0 +1,250 @@
+{
+  "geometry": "600x400+0+0",
+  "resizable": {"width": 0, "height":0},
+  "grid_columnconfigure": {"v": 0, "weight": 1},
+  "grid_rowconfigure": {"v": 0, "weight": 1},
+  "elements": [
+    {
+      "name": "fContainerMaster",
+      "type": "Frame",
+      "grid": {"sticky": "n"}
+    },
+    {
+      "name": "fContainer1",
+      "type": "Frame",
+      "param": {"master": "fContainerMaster", "borderwidth":2},
+      "grid": {"sticky": "n"}
+    },
+    {
+      "name": "fContainer2",
+      "type": "Frame",
+      "param": {"master": "fContainerMaster", "borderwidth":2}
+    },
+    {
+      "name": "fContainer1_1",
+      "type": "Frame",
+      "param": {"master": "fContainer1", "borderwidth":2, "relief": "groove"},
+      "grid": {"row":0, "column":0, "columnspan":8, "rowspan":2}
+    },
+    {
+      "name": "fContainer1_2",
+      "type": "Frame",
+      "param": {"master": "fContainer1", "borderwidth": 2},
+      "grid": {"row":0, "column":8, "columnspan":2, "rowspan":2}
+    },
+    {
+      "name": "fName",
+      "type": "Frame",
+      "param": {"master": "fContainer1_1"},
+      "grid": {"row":0, "column":0, "columnspan":4}
+    },
+    {
+      "name": "fLength",
+      "type": "Frame",
+      "param": {"master": "fContainer1_1"},
+      "grid": {"row":0, "column":4, "columnspan":1}
+    },
+    {
+      "name": "fType",
+      "type": "Frame",
+      "param": {"master": "fContainer1_1"},
+      "grid": {"row":0, "column":5, "columnspan":1}
+    },
+    {
+      "name": "fCycle",
+      "type": "Frame",
+      "param": {"master": "fContainer1_1"},
+      "grid": {"row":0, "column":6, "columnspan":1}
+    },
+    {
+      "name": "fCount",
+      "type": "Frame",
+      "param": {"master": "fContainer1_1"},
+      "grid": {"row":0, "column":7, "columnspan":1}
+    },
+    {
+      "name": "fOutput",
+      "type": "Frame",
+      "param": {"master": "fContainer1_1"},
+      "grid": {"row":1, "column":0, "columnspan":4}
+    },
+    {
+      "name": "fEffect",
+      "type": "Frame",
+      "param": {"master": "fContainer1_1"},
+      "grid": {"row":1, "column":4, "columnspan":1}
+    },
+    {
+      "name": "fColor",
+      "type": "Frame",
+      "param": {"master": "fContainer1_1"},
+      "grid": {"row":1, "column":5, "columnspan":1}
+    },
+    {
+      "name": "fShadow",
+      "type": "Frame",
+      "param": {"master": "fContainer1_1"},
+      "grid": {"row":1, "column":6, "columnspan":1}
+    },
+    {
+      "name": "fDefault",
+      "type": "Frame",
+      "param": {"master": "fContainer1_1"},
+      "grid": {"row":1, "column":7, "columnspan":1}
+    },
+    {
+      "name": "fGenPreview",
+      "type": "Frame",
+      "param": {"master": "fContainer1_2"},
+      "grid": {"row":0, "pady":5}
+    },
+    {
+      "name": "fGenerate",
+      "type": "Frame",
+      "param": {"master": "fContainer1_2"},
+      "grid": {"row":1, "pady":10}
+    },
+    {
+      "name": "cPreview",
+      "type": "Canvas",
+      "param": {"master": "fContainer2", "height":300, "width":600},
+      "grid": {"row":0, "column": 0, "rowspan":6, "columnspan":8}
+    },
+    {
+      "name": "lName",
+      "type": "Label",
+      "param": {"master": "fName", "text":"Script Name"}
+    },
+    {
+      "name": "lLength",
+      "type": "Label",
+      "param": {"master": "fLength", "text":"Frame length"}
+    },
+    {
+      "name": "lType",
+      "type": "Label",
+      "param": {"master": "fType", "text":"Transition type"}
+    },
+    {
+      "name": "lCycle",
+      "type": "Label",
+      "param": {"master": "fCycle", "text":"Cycle length"}
+    },
+    {
+      "name": "lCount",
+      "type": "Label",
+      "param": {"master": "fCount", "text":"Number of cycle"}
+    },
+    {
+      "name": "lEffect",
+      "type": "Label",
+      "param": {"master": "fEffect", "text":"Effect type"}
+    },
+    {
+      "name": "lColor",
+      "type": "Label",
+      "param": {"master": "fColor", "text":"Bright color"}
+    },
+    {
+      "name": "lShadow",
+      "type": "Label",
+      "param": {"master": "fShadow", "text":"Shadow color"}
+    },
+    {
+      "name": "lDefault",
+      "type": "Label",
+      "param": {"master": "fDefault", "text":"Default color"}
+    },
+    {
+      "name": "lOutput",
+      "type": "Label",
+      "param": {"master": "fOutput", "text":"File Name"}
+    },
+    {
+      "name": "fsvName",
+      "type": "StringVar",
+      "param": {"v":"Python Generated Sheme"}
+    },
+    {
+      "name": "fsvOutput",
+      "type": "StringVar",
+      "param": {"v":"New Generated Sheme"}
+    },
+    {
+      "name": "eName",
+      "type": "Entry",
+      "param": {"master": "fName", "width":25, "textvariable":"fsvName"}
+    },
+    {
+      "name": "eOutput",
+      "type": "Entry",
+      "param": {"master": "fOutput", "width":25, "textvariable":"fsvOutput"}
+    },
+    {
+      "name": "sLength",
+      "type": "Spinbox",
+      "param": {"master": "fLength", "from_":1, "to":20, "width":2}
+    },
+    {
+      "name": "sType",
+      "type": "Spinbox",
+      "param": {"master": "fType", "from_":0, "to":9, "width":2}
+    },
+    {
+      "name": "sCycle",
+      "type": "Spinbox",
+      "param": {"master": "fCycle", "from_":2, "to":51, "width":2}
+    },
+    {
+      "name": "sCount",
+      "type": "Spinbox",
+      "param": {"master": "fCount", "from_":1, "to":10, "width":2}
+    },
+    {
+      "name": "sEffect",
+      "type": "Spinbox",
+      "param": {"master": "fEffect", "from_":0, "to":4, "width":2}
+    },
+    {
+      "name": "bColor",
+      "type": "Button",
+      "param": {"master": "fColor", "text":"Pick color", "command":"pickColor_0"}
+    },
+    {
+      "name": "bShadow",
+      "type": "Button",
+      "param": {"master": "fShadow", "text":"Pick color", "command":"pickColor_1"}
+    },
+    {
+      "name": "bDefault",
+      "type": "Button",
+      "param": {"master": "fDefault", "text":"Pick color", "command":"pickColor_2"}
+    },
+    {
+      "name": "bGenPreview",
+      "type": "Button",
+      "param": {"master": "fGenPreview", "text":"Preview", "command":"updatePreview"}
+    },
+    {
+      "name": "bGenerate",
+      "type": "Button",
+      "param": {"master": "fGenerate", "text":"Generate", "command":"generate"}
+    },
+    {
+      "name": "mMain",
+      "type": "Menubar",
+      "param":
+      {
+        "0": {
+          "name": "caAbout",
+          "type": "MenuCascade",
+          "param": {"tearoff": 0, "label": "About"},
+          "content":
+            [
+              {"type": "MenuCommand", "label": "Help", "command": "mcHelp"}
+            ]
+        }
+      }
+    }
+    ]
+}

@@ -119,9 +119,12 @@ class window(jsonWindow):
         self.Generator.cycleLength = int(self._config["sCycle"].get())
         self.Generator.cycleCount = int(self._config["sCount"].get())
         self.Generator.effect = int(self._config["sEffect"].get())
-        self.Generator.colorFull = Color(self._color)
-        self.Generator.colorHalf = Color(self._shadow)
-        self.Generator.colorDefault = Color(self._default)
+        colmax = Color(self._color)
+        colmed = Color(self._shadow)
+        colmin = Color(self._default)
+        self.Generator.colorFull = colmax.coef(1.0, 0.68, 0.63)
+        self.Generator.colorHalf = colmed.coef(1.0, 0.68, 0.63)
+        self.Generator.colorDefault = colmin.coef(1.0, 0.68, 0.63)
 
     def _generate(self):
         if self._updateAsked:

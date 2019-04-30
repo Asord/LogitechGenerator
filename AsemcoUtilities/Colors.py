@@ -163,6 +163,52 @@ class Color:
         integer += self._red << 16
         return integer
 
+    def coef(self, cr, cg, cb):
+        if self._red == 0:
+            if self._green == 0: return
+            if self._blue == 0: return
+
+            if cg > cb:
+                cgreen = 1.0
+                cblue  = (1.0/cg)*cb
+            else:
+                cblue = 1.0
+                cgreen = (1.0/cb)*cr
+
+            self._green= int(self._green*cgreen)
+            self._blue = int(self._blue*cblue)
+
+        elif self._green == 0:
+            if self._blue == 0: return
+
+            if cr > cb:
+                cred = 1.0
+                cblue = (1.0/cr)*cb
+            else:
+                cblue = 1.0
+                cred = (1.0/cb)*cr
+
+            self._red = int(self._red*cred)
+            self._blue = int(self._blue*cblue)
+
+        elif self._blue == 0:
+            if cr > cg:
+                cred = 1.0
+                cgreen = (1.0/cr)*cg
+            else:
+                cgreen = 1.0
+                cred = (1.0/cg)*cr
+
+            self._red = int(self._red * cred)
+            self._green= int(self._green*cgreen)
+
+        else:
+            self._red = int(self._red * cr)
+            self._green= int(self._green*cg)
+            self._blue = int(self._blue*cb)
+
+        return self
+
     def toRGB(self):
         return self._red, self._green, self._blue
 
